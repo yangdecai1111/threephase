@@ -12,7 +12,7 @@
     "bcrypt": "^3.0.6"
   },
   "scripts": {
-    "dev": "nodemon server.js",
+    "go": "nodemon server.js",
     "start": "node server.js"
   },
   "keywords": [],
