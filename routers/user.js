@@ -1,4 +1,4 @@
-const express=require("express");
+﻿const express=require("express");
 const UserModel=require("../modue/users")
 const router=express.Router();
 //查找数据库记录
@@ -7,7 +7,7 @@ router.get('/find',(req,res)=>{
         console.log(data);
         res.send({
             code:0,
-            msg:'获取成功',
+            msg:'获取成功了',
             data:{
                 list:data
             }
