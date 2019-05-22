@@ -16,6 +16,6 @@ app.use(express.static(path.join(__dirname,'./public')))
 
 
 //设置路由中间件
-app.use('/user',userRouter);
+app.use('/api',userRouter);
 
 app.listen(3000)

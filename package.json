@@ -8,7 +8,9 @@
     "express": "^4.17.0",
     "mongoose": "^5.5.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "bcrypt": "^3.0.6"
+  },
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
