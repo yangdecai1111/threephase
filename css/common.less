@@ -231,6 +231,15 @@ body {
   &__item {
     border: 1px solid #000;
     margin-left: -1px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    color: #414141;
+    cursor: pointer;
+    
     &.prev {
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
@@ -242,16 +251,7 @@ body {
     &.active {
       background-color: #3eb5ed;
     }
-    a {
-      display: block;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      font-size: 20px;
-      color: #414141;
-      text-decoration: none;
-    }
+   
   }
 
   &.left {

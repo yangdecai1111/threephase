@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>xx-后台管理系统</title>
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.css">
   <link rel="stylesheet/less" href="./css/reset.less">
   <link rel="stylesheet/less" href="./css/common.less">
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1110021_bv6rtxt80dt.css">
+  
 </head>
 <body>
 
@@ -48,8 +50,7 @@
       <!-- 工具栏 -->
       <div class="lv-toolbar">
         <div class="lv-toolbar-left">
-          <button class="btn">新增用户</button>
-          <button class="btn">新增用户</button>
+          <button type="button" class="btn btn-primary">新增学生</button>
         </div>
         <div class="lv-toolbar-right">
           <div class="lv-toolbar-search-box">
@@ -58,25 +59,60 @@
           </div>
         </div>
       </div>
+      <table id="myTable" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>婚否</th>
+                <th>手机号码</th>
+            </tr>
+        </thead>
+        <tbody>
 
+        </tbody>  
+
+      </table>
       <!-- 分页 -->
       <div class="lv-pagination right">
-        <ul>
-          <li class="lv-pagination__item prev"><a href="#"><i class="iconfont icon-doubleleft"></i></a></li>
-          <li class="lv-pagination__item active"><a href="#">1</a></li>
-          <li class="lv-pagination__item"><a href="#">2</a></li>
-          <li class="lv-pagination__item"><a href="#">3</a></li>
-          <li class="lv-pagination__item"><a href="#">4</a></li>
-          <li class="lv-pagination__item"><a href="#">5</a></li>
-          <li class="lv-pagination__item next"><a href="#"><i class="iconfont icon-doubleright"></i></a></li>
+        <ul id="myPage">
+         
         </ul>
       </div>
 
     </div>
   </div>
-
+  <script type="text/html" id="inner1">
+    <% if(list.length>0){ %>
+      <% for(var i=0;i<list.length;i++){ %>
+        <tr>
+            <td><%= i+1 %></td>
+            <td><%= list[i].name %></td>
+            <td><%= list[i].sex %></td>
+            <td><%= list[i].age %></td>
+            <td><%= list[i].ismarry %></td>
+            <td><%= list[i].iphone %></td>
+        </tr>
+     <% } %>
+   <% }else{ %>
+      <tr>
+        <td colspan="6">没有更多数据</td>
+      </tr>
+  <% } %>
+  </script>
+  <script type="text/html" id="inner2">
+    <li class="lv-pagination__item prev" data-num="<%=pageNum-1<1?1:pageNum-1 %>"><i class="iconfont icon-doubleleft"></i></li>
+       <% for(var i=0;i<num;i++){ %>
+          <li class="lv-pagination__item <%= (i+1)===pageNum ? 'active': ''%>" data-num="<%= i+1 %>" ><%= i+1 %></li>
+        <% } %>
+    <li class="lv-pagination__item next" data-num="<%= pageNum+1>num?num:pageNum+1 %>"><i class="iconfont icon-doubleright"></i></li>
+  </script>
   <script src="./js/less.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+  <script src="./js/ejs.min.js"></script>
   <script src="./js/student.js"></script>
 </body>
 </html>
