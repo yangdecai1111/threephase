@@ -38,6 +38,19 @@ var Student = {
        }
     })
   },
+  addstudent:function(name,sex,age,marry,iphone){
+      $.post('http://localhost:3000/api/student',{
+        name:name,age:age,sex:sex,marry:marry,iphone:iphone
+      },function(res){
+        if(res.code===0){
+          $("#addstu2").modal('hide')
+          alert("新增成功")
+          Student.findStudent();
+        }else{
+          alert(res.msg)
+        }
+      })
+  },
   bind:function(){
     $("#myPage").on('click','li',function(){
       let toPage=$(this).data('num');
@@ -46,9 +59,37 @@ var Student = {
         Student.findStudent();
       }
     })
-  }
-}
+    $("#searchBut").click(function(){
+      let value=$("#searchInput").val();
+      Student.data.searchName=value;
+      Student.data.pageNum=1;
+      Student.findStudent();
+    })
+    $("#searchInput").blur(function(){
+      Student.data.searchName='';
+      Student.findStudent();
+    })
+    $("#addstu1").click(function(){
+      $("#addstu2").modal();
+    })
 
+    $("#addstu3").click(function(){
+       let name=$("#name").val();
+       let sex=$('input[name="sex"]:checked').val();
+       let age= parseInt($("#age option:selected").val());
+       let marry=$('input[name="marry"]:checked').val();
+       let iphone=$("#iphone").val();
+       if(name!=''){
+        Student.addstudent(name,sex,age,marry,iphone);
+       }else{
+         alert("用户名不能为空")
+       }
+       
+       
+    })
+  }
+  
+}
 
 
 
