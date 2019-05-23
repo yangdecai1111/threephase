@@ -36,6 +36,7 @@ const login=(req,res)=>{
     let username=req.body.username;
     let password=req.body.password;
     UserModel.findOne({username:username}).then((data)=>{
+       
         if(!data){
            
             res.send({
