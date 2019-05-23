@@ -15,7 +15,11 @@ app.use(express.urlencoded({extended:false}));
 //设置静态托管
 app.use(express.static(path.join(__dirname,'./public')))
 
-
+//解决跨域
+app.use((req,res,next)=>{
+    res.set('Access-Control-Allow-Origin','*');
+    next();
+})
 //设置路由中间件
 app.use('/api',[userRouter,studentRouter]);
 
