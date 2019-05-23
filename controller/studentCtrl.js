@@ -8,7 +8,7 @@ const add=(req,res)=>{
     studentMode.findOne({name:name}).then((data)=>{
         if(data){
             res.send({
-                code:0,
+                code:-1,
                 msg:'该学生已存在'
             })
         }else{
@@ -38,7 +38,7 @@ const find=(req,res)=>{
 
     studentMode.find({name:new RegExp(name)}).count().then((num)=>{
         let totalPage=Math.ceil(num/pageSize);
-    studentMode.find({name:new RegExp(name)}).skip(pageSize*(pageNum-1)).limit(pageSize).then((data)=>{
+    studentMode.find({name:new RegExp(name)}).skip(pageSize*(pageNum-1)).limit(pageSize).sort({_id:-1}).then((data)=>{
         res.send({
             code:0,
             msg:'OK',

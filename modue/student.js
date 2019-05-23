@@ -6,16 +6,16 @@ const schema=new db.Schema({
         required:true
     },
     sex:{
-        type:Number,
-        default:1
+        type:String,
+        default:"男"
     },
     age:{
         type:Number,
         default:18
     },
     ismarry:{
-        type:Number,
-        default:0
+        type:String,
+        default:"未"
     },
     iphone:Number
 
