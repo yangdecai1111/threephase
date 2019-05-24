@@ -17,7 +17,8 @@ app.use(express.static(path.join(__dirname,'./public')))
 
 //解决跨域
 app.use((req,res,next)=>{
-    res.set('Access-Control-Allow-Origin','*');
+    res.set('Access-Control-Allow-Origin','*'),
+    res.set('Access-Control-Allow-Headers','access-token')
     next();
 })
 //设置路由中间件

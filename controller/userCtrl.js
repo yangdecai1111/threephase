@@ -1,6 +1,6 @@
 const bcrypt=require("bcrypt");
 const UserModel=require("../modue/users");
-
+const jwt=require("jsonwebtoken");
 
 //注册模块
 const reg=(req,res)=>{
@@ -48,9 +48,21 @@ const login=(req,res)=>{
         let pwd=data.password
         let isOK=bcrypt.compareSync(password,pwd);
         if(isOK){
+        let token=jwt.sign({
+            username:data.uesrname
+        },"MYKEY")
             res.send({
                 code:0,
-                msg:'登录成功'
+                msg:'登录成功',
+                data:{
+                    userInfo:{
+                        token:token,
+                        username:data.username,
+                        avatar:data.avatar
+                    }
+                    
+                }
+
             })
         }else{
             res.send({

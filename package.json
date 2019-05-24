@@ -9,7 +9,8 @@
     "mongoose": "^5.5.10"
   },
   "devDependencies": {
-    "bcrypt": "^3.0.6"
+    "bcrypt": "^3.0.6",
+    "jsonwebtoken": "^8.5.1"
   },
   "scripts": {
     "go": "nodemon server.js",
