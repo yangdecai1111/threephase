@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "bcrypt": "^3.0.6",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.1"
   },
   "scripts": {
     "go": "nodemon server.js",

@@ -1,6 +1,10 @@
 ﻿const express=require("express");
 const userCtrl=require("../controller/userCtrl")
 const router=express.Router();
+const jwt=require("../jwt/jwt");
+const multer=require("multer");
+
+const upload=multer({dest:'c:/tmp'})
 // //查找数据库记录
 // router.get('/find',(req,res)=>{
 //     UserModel.find().then(data=>{
@@ -95,4 +99,5 @@ const router=express.Router();
 
 router.post('/reg',userCtrl.reg);
 router.post('/login',userCtrl.login)
+router.post('/user/upload',jwt,upload.single('avatar'),userCtrl.upload)
 module.exports=router;
