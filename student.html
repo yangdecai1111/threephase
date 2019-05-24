@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,16 @@
   <link rel="stylesheet/less" href="./css/reset.less">
   <link rel="stylesheet/less" href="./css/common.less">
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1110021_bv6rtxt80dt.css">
-  
+
 </head>
+
 <body>
 
   <header class="lv-header">
     <div class="lv-header-left">
-      <a href="/" class="logo"><h1>我的天--阳德才，你真帅</h1></a>
+      <a href="/" class="logo">
+        <h1>我的天--阳德才，你真帅</h1>
+      </a>
     </div>
     <div class="lv-header-right">
       <div class="btn"><i class="iconfont icon-setting"></i></div>
@@ -61,24 +65,24 @@
       </div>
       <table id="myTable" class="table table-bordered">
         <thead>
-            <tr>
-                <th>序号</th>
-                <th>姓名</th>
-                <th>性别</th>
-                <th>年龄</th>
-                <th>婚否</th>
-                <th>手机号码</th>
-            </tr>
+          <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>婚否</th>
+            <th>手机号码</th>
+          </tr>
         </thead>
         <tbody>
 
-        </tbody>  
+        </tbody>
 
       </table>
       <!-- 分页 -->
       <div class="lv-pagination right">
         <ul id="myPage">
-         
+
         </ul>
       </div>
 
@@ -87,72 +91,77 @@
 
   <!-- 新增学生 -->
   <div class="modal fade" tabindex="-1" role="dialog" id="addstu2">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">增加学生</h4>
-          </div>
-          <div class="modal-body">
-            <label for="name">
-              学生姓名：<input type="text" name="" id="name">
-            </label><br>
-              学生性别：男<input type="radio" id="man" name="sex" value="男">女<input type="radio" name="sex" id="woman" value="女"><br>
-            <label for="age">
-                学生年龄：<select id="age">
-                      <option value="18">18</option>
-                      <option value="19">19</option>
-                      <option value="20">20</option>
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                </select>
-            </label><br>
-            是否婚配：未<input type="radio" id="none" name="marry" value="未">已<input type="radio" name="marry" id="has" value="已"><br>
-            <label for="iphone">
-                学生号码：<input type="number" name="" id="iphone">
-            </label>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            <button type="button" class="btn btn-primary" id="addstu3">提交</button>
-          </div>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">增加学生</h4>
+        </div>
+        <div class="modal-body">
+          <label for="name">
+            学生姓名：<input type="text" name="" id="name">
+          </label><br>
+          学生性别：男<input type="radio" id="man" name="sex" value="男">女<input type="radio" name="sex" id="woman"
+            value="女"><br>
+          <label for="age">
+            学生年龄：<select id="age">
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+            </select>
+          </label><br>
+          是否婚配：未<input type="radio" id="none" name="marry" value="未">已<input type="radio" name="marry" id="has"
+            value="已"><br>
+          <label for="iphone">
+            学生号码：<input type="number" name="" id="iphone">
+          </label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" id="addstu3">提交</button>
         </div>
       </div>
     </div>
+  </div>
 
 
   <script type="text/html" id="inner1">
     <% if(list.length>0){ %>
-      <% for(var i=0;i<list.length;i++){ %>
-        <tr>
-            <td><%= i+1 %></td>
-            <td><%= list[i].name %></td>
-            <td><%= list[i].sex %></td>
-            <td><%= list[i].age %></td>
-            <td><%= list[i].ismarry %></td>
-            <td><%= list[i].iphone %></td>
-        </tr>
-     <% } %>
-   <% }else{ %>
-      <tr>
-        <td colspan="6">没有更多数据</td>
-      </tr>
-  <% } %>
+    <% for(var i=0;i<list.length;i++){ %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= list[i].name %></td>
+      <td><%= list[i].sex %></td>
+      <td><%= list[i].age %></td>
+      <td><%= list[i].ismarry %></td>
+      <td><%= list[i].iphone %></td>
+    </tr>
+    <% } %>
+    <% }else{ %>
+    <tr>
+      <td colspan="6">没有更多数据</td>
+    </tr>
+    <% } %>
   </script>
   <script type="text/html" id="inner2">
-    <li class="lv-pagination__item prev" data-num="<%=pageNum-1<1?1:pageNum-1 %>"><i class="iconfont icon-doubleleft"></i></li>
-       <% for(var i=0;i<num;i++){ %>
-          <li class="lv-pagination__item <%= (i+1)===pageNum ? 'active': ''%>" data-num="<%= i+1 %>" ><%= i+1 %></li>
-        <% } %>
-    <li class="lv-pagination__item next" data-num="<%= pageNum+1>num?num:pageNum+1 %>"><i class="iconfont icon-doubleright"></i></li>
+    <li class="lv-pagination__item prev" data-num="<%=pageNum-1<1?1:pageNum-1 %>"><i
+        class="iconfont icon-doubleleft"></i></li>
+    <% for(var i=0;i<num;i++){ %>
+    <li class="lv-pagination__item <%= (i+1)===pageNum ? 'active': ''%>" data-num="<%= i+1 %>"><%= i+1 %></li>
+    <% } %>
+    <li class="lv-pagination__item next" data-num="<%= pageNum+1>num?num:pageNum+1 %>"><i
+        class="iconfont icon-doubleright"></i></li>
   </script>
   <script src="./js/less.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -160,4 +169,5 @@
   <script src="./js/ejs.min.js"></script>
   <script src="./js/student.js"></script>
 </body>
+
 </html>
