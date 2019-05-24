@@ -11,18 +11,18 @@ var Student = {
   },
   findStudent: function () {
     $.ajax({
-      url:'http://localhost:3000/api/student',
-      method:'get',
-      headers:{
-        'access-token':localStorage.getItem('token')
+      url: 'http://localhost:3000/api/student',
+      method: 'get',
+      headers: {
+        'access-token': localStorage.getItem('token')
       },
-      
-      data:{
+
+      data: {
         pageSize: Student.data.pageSize,
         pageNum: Student.data.pageNum,
         name: Student.data.searchName
       },
-      success:function(res){
+      success: function (res) {
         if (res.code === 0) {
           Student.data.list = res.data.list;
           Student.data.totalPage = res.data.totalPage;
@@ -37,8 +37,8 @@ var Student = {
               pageNum: Student.data.pageNum
             }
           )
-  
-  
+
+
           $("#myTable tbody").html(html)
           $("#myPage").html(pageHtml)
         } else {
@@ -77,19 +77,19 @@ var Student = {
   },
   addstudent: function (name, sex, age, marry, iphone) {
     $.ajax({
-      url:'http://localhost:3000/api/student',
-      method:'post',
-      headers:{
-        'access-token':localStorage.getItem('token')
+      url: 'http://localhost:3000/api/student',
+      method: 'post',
+      headers: {
+        'access-token': localStorage.getItem('token')
       },
-      data:{
+      data: {
         name: name,
         age: age,
         sex: sex,
         marry: marry,
         iphone: iphone
       },
-      success:function(res){
+      success: function (res) {
         if (res.code === 0) {
           $("#addstu2").modal('hide')
           alert("新增成功")
@@ -150,6 +150,35 @@ var Student = {
       }
 
 
+    })
+    $("#open").click(function () {
+      $("#addstu12").modal()
+    })
+    $("#addstu13").click(function () {
+      var formData = new FormData();
+      formData.append('avatar', $('input[name="avatar"]')[0].files[0])
+      $.ajax({
+        url: 'http://localhost:3000/api/user/upload',
+        method: 'POST',
+        headers: {
+          'access-token': localStorage.getItem('token')
+        },
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (res) {
+          console.log(res)
+          if (res.code === 0) {
+            $(".avator").attr('src', res.data.avatar);
+            let userInfo = JSON.parse(localStorage.getItem('userInfo'))
+            userInfo.avatar = res.data.avatar;
+            localStorage.setItem('userInfo', JSON.stringify(userInfo))
+          } else {
+            alert('修改失败')
+          }
+          $("#addstu12").modal('hide')
+        }
+      })
     })
   }
 

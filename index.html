@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>xx-后台管理系统</title>
-  
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.css">
   <link rel="stylesheet/less" href="./css/reset.less">
   <link rel="stylesheet/less" href="./css/common.less">
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1110021_bv6rtxt80dt.css">
-  
+
 </head>
+
 <body>
 
   <header class="lv-header">
     <div class="lv-header-left">
-      <a href="/" class="logo"><h1>我的天--阳德才，你真帅</h1></a>
+      <a href="/" class="logo">
+        <h1>我的天--阳德才，你真帅</h1>
+      </a>
     </div>
     <div class="lv-header-right">
       <div class="btn"><i class="iconfont icon-setting"></i></div>
-      <div class="btn"><i class="iconfont icon-edit"></i></div>
+      <div class="btn" id="modify"><i class="iconfont icon-edit"></i></div>
       <div class="user">
         <img class="avator" src="./images/avator.png" alt="">
         <span class="nickname">Admin</span>
@@ -48,12 +52,32 @@
     </div>
 
     <div class="lv-body">
-      首页
+      <h1>首页</h1>
     </div>
   </div>
 
+  <!-- 修改头像 -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="addstu6">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <input type="file" name="avatar" id="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" id="addstu9">提交</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="./js/less.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
   <script src="./js/public.js"></script>
 </body>
+
 </html>
